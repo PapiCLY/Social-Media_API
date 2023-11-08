@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(routes);
 
-db.once('open', () => { //.once() is a mongoose method which indicates the connetion to mongodb is made
+db.once('open', () => { //.once() is a mongoose method which indicates the connetion to mongodb is made-
 app.listen(PORT, () => {
     console.log(`server running on port: ${PORT}`);
     console.log('connected to db');
