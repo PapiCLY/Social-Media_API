@@ -16,7 +16,7 @@ module.exports = {
     Thought.findOne({ _id: params.thoughtId })
         .then(dbThoughtData => {
             if (!dbThoughtData) {
-                res.status(404).json({ message: 'No thought found with this id!' });
+                res.status(404).json({ message: 'User thought found'});
                 return;
             }
             res.json(dbThoughtData);
@@ -37,7 +37,7 @@ module.exports = {
             );
         })
         .then((user)=> 
-            !user ? res.status(404).json({message: 'No user found with this id!'}) 
+            !user ? res.status(404).json({message: 'Thought created!'}) 
             : res.json({
                 updatedUser: user,
                 message: 'Thought added to user successfully!'
@@ -53,7 +53,7 @@ module.exports = {
     Thought.findOneAndUpdate({ _id: req.params.thoughtId }, {$set: req.body}, { new: true, runValidators: true })
         .then(dbThoughtData => {
             if (!dbThoughtData) {
-                res.status(404).json({ message: 'No thought found with this id!' });
+                res.status(404).json({ message: 'Thought updated!' });
                 return;
             }
             res.json(dbThoughtData);
